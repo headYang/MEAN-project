@@ -4,19 +4,23 @@ const Schema = mongoose.Schema;
 
 let Issue = new Schema({
     title: {
-        type: string
+        type: String,
+        default: ''
     },
     responsible: {
-        type: string
+        type: String,
+        default: ''
     },
     description: {
-        type: string
+        type: String,
+        default: ''
     },
     severity: {
-        type: string
+        type: String,
+        default: ''
     },
     status: {
-        type: string,
+        type: String,
         default: 'Open'
     }
 });
