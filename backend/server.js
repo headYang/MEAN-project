@@ -1,10 +1,25 @@
 import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+
+import Issue from './models/Issue';
 
 const app = express();
-app.get('/', (req, res) => {
-    res.send('Hello world!');
+const router = express.Router();
+
+app.use(cors());
+app.use(bodyParser.json());
+
+mongoose.connect('');
+
+const connection = mongoose.connection;
+
+connection.once('open', () => {
+    console.log('MongoDB database connection establish success!');
 });
 
-app.listen(4000, () => {
-    console.log('Express server running on port 4000');
-});
+app.use('/', router);
+
+
+app.listen(4000, () => console.log('Express server running on port 4000'));
